@@ -12,7 +12,23 @@
             include_once 'views/customers/index.php';
             break;
         case 'create':
+            include_once 'views/customers/create.php';
+            break;
+        case 'store':
+            include_once 'models/customerModel.php';
+            header('Location:index.php?controller=customer');
+            break;
         case 'edit':
+            include_once 'models/customerModel.php';
+            include_once 'views/customers/edit.php';
+            break;
+        case 'update':
+            include_once 'models/customerModel.php';
+            header('Location:index.php?controller=customer');
+            break;
         case 'destroy':
+            include_once 'models/customerModel.php';
+            header('Location:index.php?controller=customer');
+            break;
     }
 ?>
