@@ -1,11 +1,32 @@
 <?php
     //function lấy dữ liệu
     function index(){
+        $search = '';
+        if(isset($_POST['search'])){
+            $search = $_POST['search'];
+        }
+        $page = 1;
+        if(isset($_POST['page'])){
+            $page = $_POST['page'];
+        }
         include_once 'connect/openConnect.php';
-        $sql = "SELECT * FROM customer";
+        $sqlCountRecord = "SELECT COUNT(*) AS count_record FROM customer WHERE name LIKE '%$search%'";
+        $countRecords = mysqli_query($connect, $sqlCountRecord);
+        foreach ($countRecords as $each){
+            $countRecord = $each['count_record'];
+        }
+        $recordOnePage = 3;
+        $countPage = ceil($countRecord / $recordOnePage);
+        $start = ($page - 1 ) * $recordOnePage;
+        $end = $recordOnePage;
+        $sql = "SELECT * FROM customer WHERE name LIKE '%$search%' LIMIT $start, $end";
         $customers = mysqli_query($connect, $sql);
         include_once 'connect/closeConnect.php';
-        return $customers;
+        $array = array();
+        $array['search'] = $search;
+        $array['customers'] = $customers;
+        $array['page'] = $countPage;
+        return $array;
     }
     //function để lưu dữ liệu lên db
     function store(){
@@ -52,7 +73,7 @@
     switch ($action){
         case '':
             //Lấy dữ liệu từ db
-            $customers = index();
+            $array = index();
             break;
         case 'store':
             //Lưu dữ liệu lên db

@@ -8,6 +8,10 @@
     <title>Customer's List</title>
 </head>
 <body>
+    <form method="post" action="index.php?controller=customer">
+        Search: <input type="text" name="search" value="<?= $array['search']?>">
+        <button>Search</button>
+    </form>
     <a href="index.php?controller=customer&action=create">Add a customer</a>
     <table border="1px" cellspacing="0" cellpadding="0" width="100%">
         <tr>
@@ -20,7 +24,7 @@
             <th></th>
         </tr>
         <?php
-            foreach ($customers as $customer){
+            foreach ($array['customers'] as $customer){
         ?>
             <tr>
                 <td>
@@ -49,5 +53,17 @@
             }
         ?>
     </table>
+    <p>Trang</p>
+    <?php
+        for ($i = 1; $i <= $array['page']; $i++){
+    ?>
+        <form method="post" action="index.php?controller=customer">
+            <input type="hidden" name="search" value="<?= $array['search']?>">
+            <input type="hidden" name="page" value="<?= $i ?>">
+            <button><?= $i ?></button>
+        </form>
+    <?php
+        }
+    ?>
 </body>
 </html>
