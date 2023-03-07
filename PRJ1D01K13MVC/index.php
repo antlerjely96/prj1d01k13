@@ -14,6 +14,7 @@
             include_once 'controllers/customerController.php';
             break;
         case 'bill':
+            include_once 'controllers/billController.php';
             break;
     }
 ?>

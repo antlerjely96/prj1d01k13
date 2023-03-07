@@ -9,6 +9,6 @@
 </head>
 <body>
     <a href="index.php?controller=customer">Customer</a>
-    <a href="">Bill</a>
+    <a href="index.php?controller=bill">Bill</a>
 </body>
 </html>
