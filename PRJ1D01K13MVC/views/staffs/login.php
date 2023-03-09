@@ -5,11 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
-    <a href="index.php?controller=customer">Customer</a>
-    <a href="index.php?controller=bill">Bill</a>
-    <a href="index.php?controller=staff&action=logout">Logout</a>
+    <form method="post" action="index.php?controller=staff&action=loginProcess">
+        Email: <input type="email" name="email"><br>
+        Password: <input type="password" name="password"><br>
+        <button>Login</button>
+    </form>
 </body>
 </html>
