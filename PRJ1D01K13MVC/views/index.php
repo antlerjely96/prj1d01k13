@@ -9,6 +9,7 @@
 </head>
 <body>
     <a href="index.php?controller=customer">Customer</a>
+    <a href="index.php?controller=product">Product</a>
     <a href="index.php?controller=bill">Bill</a>
     <a href="index.php?controller=staff&action=logout">Logout</a>
 </body>

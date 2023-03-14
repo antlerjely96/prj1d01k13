@@ -24,5 +24,8 @@
         case 'staff':
             include_once 'controllers/staffController.php';
             break;
+        case 'product':
+            include_once 'controllers/productController.php';
+            break;
     }
 ?>

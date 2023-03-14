@@ -11,6 +11,7 @@
                 return 0;
             } elseif ($staff['count_staff'] == 1){
                 $_SESSION['email'] = $email;
+                $_SESSION['staff_id'] = $staff['id'];
                 return 1;
             }
         }
